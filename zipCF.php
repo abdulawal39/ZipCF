@@ -96,7 +96,9 @@
 							}
 							//add the files
 							foreach($valid_files as $file) {
-								$zip->addFile($file,$file);
+								if (file_exists($file) && is_file($file)){
+									$zip->addFile($file,$file);
+								}	
 							}
 							//debug
 							//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
