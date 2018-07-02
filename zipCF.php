@@ -3,8 +3,9 @@
  * zipCF - Create Zip File with directory content
  * Author : Abdul Awal
  * Article Url: http://go.abdulawal.com/1
- * Version: 1.0
+ * Version: 1.1
  * Released on: February 26 2016
+ * Updated On: July 02, 2018
  */
 ?>
 <!DOCTYPE html>
