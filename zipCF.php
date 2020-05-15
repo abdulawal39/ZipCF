@@ -5,7 +5,7 @@
  * Article Url: http://go.abdulawal.com/1
  * Version: 2.0
  * Released on: February 26 2016
- * Updated On: October 26, 2019
+ * Updated On: May 15, 2020
  */
 
 // set password
@@ -150,20 +150,6 @@ function generate_zip_file($files = array(),$destination = '',$overwrite = false
 <body>
 	<div class="container">
 		<h3>ZipCF 2.0 - Make zip file with current directory! </h3>
-		<form action="" method="POST">
-			<label for="zip-file-name">Zip File Name</label> <br>
-			<input type="text" id="zip-file-name" name="zip_file_name" value="" placeholder="Name of the zip file" />
-			<p><strong>Select Items</strong></p>
-			<p><input type="checkbox" id="select-all-files" value="Select All"><label for="select-all-files" class="fs-label">Select All</label></p>
-			<?php
-			$list_all_files_folders = getDirItems(dirname(__FILE__));
-
-			foreach ($list_all_files_folders as $key => $value) {
-				echo '<input type="checkbox" name="selected_files[]" id="file-'.$key.'" value="'.$value.'" /> <label for="file-'.$key.'" class="fs-label">'.$value.'</label><br />';
-			}
-			?>
-			<input type="submit" value="Create Zip File" />
-		</form>
 		<?php
 			if(isset($_POST['zip_file_name'])){
 				if(!empty($_POST['zip_file_name'])){
@@ -191,19 +177,33 @@ function generate_zip_file($files = array(),$destination = '',$overwrite = false
 					//if true, good; if false, zip creation failed
 					$result = generate_zip_file($file_array,$final_name);
 					if($result){
-						echo "Successfully Created Zip file $final_name , <strong style='color: red;'>Please don't forget to either set a password at the top of ZipCF.php file or delete this file when you're done.</strong>";
+						echo '<p style="text-align: center;">Successfully Created Zip file ' . $final_name . '. <br><br /> <strong style="color: red;">Please don\'t forget to either set a password at the top of ZipCF.php file or delete this file when you\'re done.</strong></p>';
 					} else {
-						echo "Failed to create zip file, Please try again";
+						echo '<p style="text-align: center;">Failed to create zip file, Please try again</p>';
 					}
 				} else {
-					echo "Please provide a name for the zip file";
+					echo '<p style="text-align: center;">Please provide a name for the zip file</p>';
 				}
 			}
 		?>
+		<form action="" method="POST">
+			<label for="zip-file-name">Zip File Name</label> <br>
+			<input type="text" id="zip-file-name" name="zip_file_name" value="" placeholder="Name of the zip file" />
+			<p><strong>Select Items</strong></p>
+			<p><input type="checkbox" id="select-all-files" value="Select All"><label for="select-all-files" class="fs-label">Select All</label></p>
+			<?php
+			$list_all_files_folders = getDirItems(dirname(__FILE__));
+
+			foreach ($list_all_files_folders as $key => $value) {
+				echo '<input type="checkbox" name="selected_files[]" id="file-'.$key.'" value="'.$value.'" /> <label for="file-'.$key.'" class="fs-label">'.$value.'</label><br />';
+			}
+			?>
+			<input type="submit" value="Create Zip File" />
+		</form>
 	</div>
 
-	<div class="copyright">Copyright &copy; <?php echo date("Y"); ?> . All rights Reserved by <a href="http://abdulawal.com/" target="_blank">Abdul Awal Uzzal</a></div>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<div class="copyright">Copyright &copy; <?php echo date("Y"); ?> . All rights Reserved by <a href="https://abdulawal.com/" target="_blank">Abdul Awal Uzzal</a></div>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		$('#select-all-files').click(function(event) {
 		    if(this.checked) {
