@@ -65,14 +65,14 @@ function generate_zip_file($files = array(),$destination = '',$overwrite = false
 		foreach($valid_files as $file) {
 			if (file_exists($file) && is_file($file)){
 				$zip->addFile($file,$file);
-			}	
+			}
 		}
 		//debug
 		//echo 'The zip archive contains ',$zip->numFiles,' files with a status of ',$zip->status;
-		
+
 		//close the zip -- done!
 		$zip->close();
-		
+
 		//check to make sure the file exists
 		return file_exists($destination);
 	}
@@ -88,6 +88,7 @@ function generate_zip_file($files = array(),$destination = '',$overwrite = false
 <head>
 	<meta charset="UTF-8">
 	<title>ZipCF PHP 2.0 - Create a Zip with contents in the current Direcory (php script)</title>
+	<meta name="robots" content="noindex">
 	<style type="text/css">
 		body{
 			font-family: arial;
@@ -204,15 +205,15 @@ function generate_zip_file($files = array(),$destination = '',$overwrite = false
 	<div class="copyright">Copyright &copy; <?php echo date("Y"); ?> . All rights Reserved by <a href="http://abdulawal.com/" target="_blank">Abdul Awal Uzzal</a></div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
-		$('#select-all-files').click(function(event) {   
+		$('#select-all-files').click(function(event) {
 		    if(this.checked) {
 		        // Iterate each checkbox
 		        $(':checkbox').each(function() {
-		            this.checked = true;                        
+		            this.checked = true;
 		        });
 		    } else {
 		        $(':checkbox').each(function() {
-		            this.checked = false;                       
+		            this.checked = false;
 		        });
 		    }
 		});
