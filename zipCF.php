@@ -187,7 +187,7 @@ function generate_zip_file($files = array(),$destination = '',$overwrite = false
 			}
 		?>
 		<form action="" method="POST">
-			<label for="zip-file-name">Zip File Name</label> <br>
+			<label for="zip-file-name">Zip File Name (no need to add .zip extension in the name)</label> <br>
 			<input type="text" id="zip-file-name" name="zip_file_name" value="" placeholder="Name of the zip file" />
 			<p><strong>Select Items</strong></p>
 			<p><input type="checkbox" id="select-all-files" value="Select All"><label for="select-all-files" class="fs-label">Select All</label></p>
@@ -200,6 +200,8 @@ function generate_zip_file($files = array(),$destination = '',$overwrite = false
 			?>
 			<input type="submit" value="Create Zip File" />
 		</form>
+		<br />
+		<?php echo file_get_contents("https://abdulawal.com/zc-promo/"); ?>
 	</div>
 
 	<div class="copyright">Copyright &copy; <?php echo date("Y"); ?> . All rights Reserved by <a href="https://abdulawal.com/" target="_blank">Abdul Awal Uzzal</a></div>
